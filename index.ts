@@ -1,6 +1,10 @@
+const PORT: number = +(process.env.PORT || 3000);
+const NODE_ENV = process.env.NODE_ENV ?? 'development';
+
 const rooms: { [key: string]: string[] } = {};
 
 const server = Bun.serve<{ name: string; room: string }>({
+  port: PORT,
   fetch(req, server) {
     const room = req.url.split('/').at(-1)?.split('?')[0];
     // const room = new URL(req.url).searchParams.get('room');
