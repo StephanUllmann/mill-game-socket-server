@@ -4,12 +4,13 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch index.ts",
-    "start": "bun index.ts"
+    "build": "bun build --outdir ./dist --target bun index.ts",
+    "start": "bun run dist/index.js"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.5.4"
   }
 }
